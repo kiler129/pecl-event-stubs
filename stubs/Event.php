@@ -292,7 +292,7 @@ final class Event
      *
      * @link http://php.net/manual/en/event.settimer.php
      */
-    public function setTimer(EventBase $base, callable $cb, mixed $arg = null): bool
+    public function setTimer(EventBase $base, callable $cb, $arg = null): bool
     {
     }
 
@@ -318,7 +318,7 @@ final class Event
         EventBase $base,
         int $signum,
         callable $cb,
-        mixed $arg = null): Event
+        $arg = null): Event
     {
     }
 
@@ -340,7 +340,7 @@ final class Event
      *
      * @link http://php.net/manual/en/event.timer.php
      */
-    public static function timer(EventBase $base, callable $cb, mixed $arg = null): Event
+    public static function timer(EventBase $base, callable $cb, $arg = null): Event
     {
     }
 }

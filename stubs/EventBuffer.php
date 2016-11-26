@@ -345,12 +345,12 @@ class EventBuffer
      * @param int    $start [optional] Start search position.
      * @param int    $end   [optional] End search position.
      *
-     * @return mixed Returns numeric position of the first occurance of the string in the
-     *               buffer, or FALSE if string is not found.
+     * @return int|bool Returns numeric position of the first occurrence of the string in
+     *                  the buffer, or FALSE if string is not found.
      *
      * @link http://php.net/manual/en/eventbuffer.search.php
      */
-    public function search(string $what, int $start = -1, int $end = -1): mixed
+    public function search(string $what, int $start = -1, int $end = -1)
     {
     }
 
@@ -369,14 +369,14 @@ class EventBuffer
      * @param int $start     Start search position.
      * @param int $eol_style [optional] One of EventBuffer:EOL_* constants.
      *
-     * @return mixed Returns numeric position of the first occurrence of end-of-line
+     * @return int|bool Returns numeric position of the first occurrence of end-of-line
      *               symbol in the buffer, or FALSE if not found.
      *
      * @link http://php.net/manual/en/eventbuffer.searcheol.php
      */
     public function searchEol(
         int $start = -1,
-        int $eol_style = EventBuffer::EOL_ANY): mixed
+        int $eol_style = EventBuffer::EOL_ANY)
     {
     }
 
@@ -430,15 +430,15 @@ class EventBuffer
      * Write contents of the buffer to a file descriptor. The buffer will be drained
      * after the bytes have been successfully written.
      *
-     * @param mixed $fd      Socket resource, stream or numeric file descriptor
-     *                       associated normally associated with a socket.
-     * @param int   $howmuch [optional] The maximum number of bytes to write.
+     * @param resource|int $fd      Socket resource, stream or numeric file descriptor
+     *                              associated normally associated with a socket.
+     * @param int          $howmuch [optional] The maximum number of bytes to write.
      *
      * @return int Returns the number of bytes written, or FALSE on error.
      *
      * @link http://php.net/manual/en/eventbuffer.write.php
      */
-    public function write(mixed $fd, int $howmuch = null): int
+    public function write($fd, int $howmuch = null): int
     {
     }
 }
