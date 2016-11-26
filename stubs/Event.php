@@ -5,11 +5,11 @@
  * or write to; a file descriptor becoming ready to read from or write to(edge-triggered
  * I/O only); a timeout expiring; a signal occurring; a user-triggered event.
  *
- * Every event is associated with EventBase . However, event will never fire until it is
+ * Every event is associated with EventBase. However, event will never fire until it is
  * added (via Event::add() ). An added event remains in pending state until the
  * registered event occurs, thus turning it to active state. To handle events user may
  * register a callback which is called when event becomes active. If event is configured
- * persistent , it remains pending. If it is not persistent, it stops being pending when
+ * persistent, it remains pending. If it is not persistent, it stops being pending when
  * it's callback runs. Event::del() method deletes event, thus making it non-pending. By
  * means of Event::add() method it could be added again.
  *
@@ -20,7 +20,7 @@ final class Event
     /**
      * Indicates that the event should be edge-triggered, if the underlying event base
      * backend supports edge-triggered events. This affects the semantics of Event::READ
-     * and Event::WRITE .
+     * and Event::WRITE.
      *
      * @var int
      */
@@ -61,7 +61,7 @@ final class Event
      * This flag indicates an event that becomes active after a timeout elapses.
      *
      * The Event::TIMEOUT flag is ignored when constructing an event: one can either set
-     * a timeout when event is added , or not. It is set in the $what argument to the
+     * a timeout when event is added, or not. It is set in the $what argument to the
      * callback function when a timeout has occurred.
      *
      * @var int
@@ -91,7 +91,7 @@ final class Event
      *
      * @link http://php.net/manual/en/event.add.php
      */
-    public function add(double $timeout): bool
+    public function add(double $timeout = null): bool
     {
     }
 
@@ -108,7 +108,7 @@ final class Event
      * @link http://php.net/manual/en/event.addsignal.php
      * @see  \Event::add()
      */
-    public function addSignal(double $timeout): bool
+    public function addSignal(double $timeout = null): bool
     {
     }
 
@@ -124,7 +124,7 @@ final class Event
      * @link http://php.net/manual/en/event.addtimer.php
      * @see  Event::add()
      */
-    public function addTimer(double $timeout): bool
+    public function addTimer(double $timeout = null): bool
     {
     }
 
@@ -133,8 +133,8 @@ final class Event
      *
      * @param EventBase $base The event base to associate with.
      * @param mixed     $fd   A stream resource, socket resource, or numeric file
-     *                        descriptor. For timer events pass -1 . For signal events
-     *                        pass the signal number, e.g. SIGHUP .
+     *                        descriptor. For timer events pass -1. For signal events
+     *                        pass the signal number, e.g. SIGHUP.
      * @param int       $what Event flags.
      * @param callable  $cb   The event callback. {@see
      *                        http://php.net/manual/en/event.callbacks.php}
@@ -198,7 +198,7 @@ final class Event
      *
      * Removes event from the list of events monitored by libevent, and free resources
      * allocated for the event. Warning: The Event::free() method currently doesn't
-     * destruct the object itself. To destruct the object completely call unset() , or
+     * destruct the object itself. To destruct the object completely call unset(), or
      * assign NULL.
      *
      * @return void
@@ -280,7 +280,7 @@ final class Event
      * Re-configures timer event.
      *
      * Re-configures timer event. Note, this function doesn't invoke obsolete libevent's
-     * event_set . It calls event_assign instead.
+     * event_set. It calls event_assign instead.
      *
      * @param EventBase $base The event base to associate with.
      * @param callable  $cb   The event callback. {@see
