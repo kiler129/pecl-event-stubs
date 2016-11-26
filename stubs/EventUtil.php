@@ -234,7 +234,11 @@ final class EventUtil
      *
      * @link http://php.net/manual/en/eventutil.construct.php
      */
-    abstract public function __construct();
+    /*abstract*/
+    public function __construct()
+    {
+    }
+    //Note: To comply with PHP syntax this constructor is not marked with abstract in stub
 
     /**
      * Returns the most recent socket error number.
@@ -249,7 +253,6 @@ final class EventUtil
     public static function getLastSocketErrno($socket = null): int
     {
     }
-
 
     /**
      * Returns the most recent socket error.
