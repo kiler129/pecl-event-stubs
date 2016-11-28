@@ -1,7 +1,7 @@
 # PECL `Event` Stubs
 
 PHP offers great wrapper for fast [libevent](http://libevent.org) API. Extension code can
-be obtained from [project repository](https://bitbucket.org/osmanov/pecl-event]) and 
+be obtained from [project repository](https://bitbucket.org/osmanov/pecl-event) and 
 prebuild extensions, including DLLs for Windows, are available via [PECL](https://pecl.php.net/package/event).
 
 ### Something was missing...
